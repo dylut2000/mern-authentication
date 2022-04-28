@@ -4,5 +4,29 @@
 
 
 ### Test Server
-
 GET http://localhost:4000/api HTTP/1.1
+
+
+
+### Get goals
+GET http://localhost:4000/api/goals HTTP/1.1
+
+
+
+### Add goal
+POST http://localhost:4000/api/goals HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Add test Goal"
+}
+
+
+
+### Update goal
+PUT http://localhost:4000/api/goals/1 HTTP/1.1
+
+
+
+### Delete goal
+DELETE http://localhost:4000/api/goals/1 HTTP/1.1
