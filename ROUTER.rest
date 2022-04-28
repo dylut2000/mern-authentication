@@ -4,7 +4,7 @@
 
 
 ### Test Server
-GET http://localhost:4000/api HTTP/1.1
+GET http://localhost:4000 HTTP/1.1
 
 
 

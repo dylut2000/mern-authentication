@@ -13,7 +13,11 @@ const getGoals = (req, res) => {
 // @url-param   -
 // @access      public
 const setGoal = (req, res) => {
-  res.status(200).json({message: 'Create goal'})
+  if (!req.body.name) {
+    res.status(400)
+    throw new Error('Please add the name field')
+  }
+  res.status(200).json({message: 'Create goal', data: req.body})
 }
 
 // @desc        Update goal
