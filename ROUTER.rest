@@ -1,0 +1,8 @@
+### ⛔️ THIS FILE IS FOR VS-CODE text editor only!!!
+### Install a VS-CODE plugin called REST Client
+### Then you will be able to make API request from this file
+
+
+### Test Server
+
+GET http://localhost:4000/api HTTP/1.1
