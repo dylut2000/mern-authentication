@@ -33,4 +33,4 @@ content-type: application/json
 
 
 ### Delete goal
-DELETE http://localhost:4000/api/goals/626ac5ddebc75ae50563102c
+DELETE http://localhost:4000/api/goals/626accdeca7a17b14d3d2dff
