@@ -33,7 +33,9 @@ const setGoal = asyncHandler(async (req, res) => {
 // @url-param   number
 // @access      private
 const updateGoal = asyncHandler(async (req, res) => {
-  const goal = Goal.findById(req.params.id)
+  const goal = await Goal.findById(req.params.id)
+
+  console.log(goal)
 
   if (!goal) {
     req.status(400)
@@ -43,6 +45,12 @@ const updateGoal = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400)
     throw new Error('Please add the text field')
+  }
+
+  // make sure the goal user is the authorized user
+  if (goal.user.toString() !== req.user.id) {
+    res.status(401)
+    throw new Error('User not authorized')
   }
 
   const updatedGoal = await Goal.findByIdAndUpdate(
@@ -60,11 +68,17 @@ const updateGoal = asyncHandler(async (req, res) => {
 // @url-param   number
 // @access      private
 const deleteGoal = asyncHandler(async (req, res) => {
-  const goal = Goal.findById(req.params.id)
+  const goal = await Goal.findById(req.params.id)
 
   if (!goal) {
     req.status(400)
     throw new Error('Goal not found')
+  }
+
+  // make sure the goal user is the authorized user
+  if (goal.user.toString() !== req.user.id) {
+    res.status(401)
+    throw new Error('User not authorized')
   }
 
   await goal.remove()
