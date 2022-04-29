@@ -9,13 +9,16 @@ GET http://localhost:4000 HTTP/1.1
 
 
 ### Get goals
-GET http://localhost:4000/api/goals HTTP/1.1
+GET http://localhost:4000/api/goals
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmMzZmMwMTljODM2NTU5ZTNjZjExOCIsImlhdCI6MTY1MTI2NDc1MCwiZXhwIjoxNjUxODY5NTUwfQ.Q0mpd9SfjTqhDXamQOUYsXICuJa0P6iuZY5JMGgJYJc
 
 
 
 ### Add goal
 POST http://localhost:4000/api/goals HTTP/1.1
-content-type: application/json
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmMzZmMwMTljODM2NTU5ZTNjZjExOCIsImlhdCI6MTY1MTI2NDc1MCwiZXhwIjoxNjUxODY5NTUwfQ.Q0mpd9SfjTqhDXamQOUYsXICuJa0P6iuZY5JMGgJYJc
 
 {
     "text": "My 4 goal"
@@ -25,7 +28,8 @@ content-type: application/json
 
 ### Update goal
 PUT http://localhost:4000/api/goals/626ac5d2ebc75ae50563102a
-content-type: application/json
+Content-Type: application/json
+Authorization: Bearer xxx
 
 {
     "text": "My 2 goal"
@@ -39,17 +43,17 @@ DELETE http://localhost:4000/api/goals/626accdeca7a17b14d3d2dff
 
 ### Register user
 POST http://localhost:4000/api/users HTTP/1.1
-content-type: application/json
+Content-Type: application/json
 
 {
-    "name": "hardy", "email": "hardy1@gmail.com", "password": "1234"
+    "name": "hardy", "email": "hardy2@gmail.com", "password": "1234"
 }
 
 
 
 ### Login user
 POST http://localhost:4000/api/users/login HTTP/1.1
-content-type: application/json
+Content-Type: application/json
 
 {
     "email": "hardy@gmail.com", "password": "1234"
