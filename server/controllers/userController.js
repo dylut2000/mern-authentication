@@ -45,6 +45,23 @@ const registerUser = asyncHandler(async (req, res) => {
 // @url-param   -
 // @access      public
 const loginUser = asyncHandler(async (req, res) => {
+  const {email, password} = req.body
+
+  if (!email || !password) {
+    res.status(400)
+    throw new Error('All fields are required')
+  }
+
+  // check if user exits
+  const user = await User.findOne({email})
+
+  if (user && (await bcrypt.compare(password, user.password))) {
+    res.status(200).json({_id: user.id, name: user.name, email: user.email})
+  } else {
+    res.status(400)
+    throw new Error('Invalid credentials')
+  }
+
   res.status(200).json({message: 'user logged in', data: req.body})
 })
 
