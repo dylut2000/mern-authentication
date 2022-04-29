@@ -74,13 +74,10 @@ const loginUser = asyncHandler(async (req, res) => {
 })
 
 // @desc        generate Token
-// @route       -
-// @params      -
-// @url-param   -
 // @access      public
 const generateToken = (id) => {
   return jwt.sign({id}, process.env.JWT_SECRET || 'HardyLutulaDylut2000', {
-    expiresIn: '5d',
+    expiresIn: '7d',
   })
 }
 

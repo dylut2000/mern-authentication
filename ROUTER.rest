@@ -42,7 +42,7 @@ POST http://localhost:4000/api/users HTTP/1.1
 content-type: application/json
 
 {
-    "name": "hardy", "email": "hardy@gmail.com", "password": "1234"
+    "name": "hardy", "email": "hardy1@gmail.com", "password": "1234"
 }
 
 
