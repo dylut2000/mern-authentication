@@ -4,24 +4,24 @@
 
 
 ### Test Server
-GET http://localhost:4000 HTTP/1.1
+GET http://localhost:4000
 
 
 
 ### Get goals
 GET http://localhost:4000/api/goals
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmMzZmMwMTljODM2NTU5ZTNjZjExOCIsImlhdCI6MTY1MTI2NDc1MCwiZXhwIjoxNjUxODY5NTUwfQ.Q0mpd9SfjTqhDXamQOUYsXICuJa0P6iuZY5JMGgJYJc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmMzZmMwMTljODM2NTU5ZTNjZjExOCIsImlhdCI6MTY1MTI2NzQ0MiwiZXhwIjoxNjUxODcyMjQyfQ.4JLCav_jkzatQJt2YSVuWYauwaEbjxBIjVn47SVLN2w
 
 
 
 ### Add goal
-POST http://localhost:4000/api/goals HTTP/1.1
+POST http://localhost:4000/api/goals
 Content-Type: application/json
-authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmMzZmMwMTljODM2NTU5ZTNjZjExOCIsImlhdCI6MTY1MTI2NDc1MCwiZXhwIjoxNjUxODY5NTUwfQ.Q0mpd9SfjTqhDXamQOUYsXICuJa0P6iuZY5JMGgJYJc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmMzZmMwMTljODM2NTU5ZTNjZjExOCIsImlhdCI6MTY1MTI2NDc1MCwiZXhwIjoxNjUxODY5NTUwfQ.Q0mpd9SfjTqhDXamQOUYsXICuJa0P6iuZY5JMGgJYJc
 
 {
-    "text": "My 4 goal"
+    "text": "My 5 goal"
 }
 
 
