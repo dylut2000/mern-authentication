@@ -34,3 +34,23 @@ content-type: application/json
 
 ### Delete goal
 DELETE http://localhost:4000/api/goals/626accdeca7a17b14d3d2dff
+
+
+
+### Register user
+POST http://localhost:4000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "name": "string", "email": "string", "password": "string"
+}
+
+
+
+### Login user
+POST http://localhost:4000/api/users/login HTTP/1.1
+content-type: application/json
+
+{
+    "email": "string", "password": "string"
+}
