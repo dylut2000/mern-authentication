@@ -12,16 +12,56 @@ const Register = () => {
 
   const {name, email, password, confirmPassword} = formData
 
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
+  }
+
+  const onSubmit = () => {
+    if (password !== confirmPassword) {
+      return
+    }
+    console.log(formData)
+  }
+
   return (
     <div className="auth">
       <div className="auth__card">
         <FaUser className="logo" />
         <h2>Create an account</h2>
-        <input type="text" placeholder="Name" />
-        <input type="text" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <input type="password" placeholder="Confirm Password" />
-        <button className="btn btn-primary">Register</button>
+        <input
+          type="text"
+          name="name"
+          value={name}
+          placeholder="Name"
+          onChange={onChange}
+        />
+        <input
+          type="email"
+          name="email"
+          value={email}
+          placeholder="Email"
+          onChange={onChange}
+        />
+        <input
+          type="password"
+          name="password"
+          value={password}
+          placeholder="Password"
+          onChange={onChange}
+        />
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={onChange}
+        />
+        <button className="btn btn-primary" onClick={onSubmit}>
+          Register
+        </button>
         <p>
           Do you have an account? <Link to={'/login'}>Login</Link>
         </p>
