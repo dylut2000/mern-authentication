@@ -20,7 +20,12 @@ const Register = () => {
   }
 
   const onSubmit = () => {
+    if (!name || !email || !password || !confirmPassword) {
+      console.log('All fields are required')
+      return
+    }
     if (password !== confirmPassword) {
+      console.log('Password did not match')
       return
     }
     console.log(formData)
