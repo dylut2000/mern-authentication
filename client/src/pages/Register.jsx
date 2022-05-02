@@ -23,7 +23,7 @@ const Register = () => {
         <input type="password" placeholder="Confirm Password" />
         <button className="btn btn-primary">Register</button>
         <p>
-          Do you have an account? <Link to={'login'}>Login</Link>
+          Do you have an account? <Link to={'/login'}>Login</Link>
         </p>
       </div>
     </div>
