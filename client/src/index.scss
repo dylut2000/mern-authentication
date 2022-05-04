@@ -62,6 +62,19 @@ body {
       li {
         margin-left: 1.5rem;
         display: inline;
+
+        button {
+          background-color: transparent;
+          font-weight: bold;
+          color: var(--smoke);
+          border: none;
+          cursor: pointer;
+
+          &:hover {
+            color: var(--white);
+            font-style: oblique;
+          }
+        }
       }
     }
 
