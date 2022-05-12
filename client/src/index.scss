@@ -98,7 +98,7 @@ body {
 
     .auth {
       width: 100%;
-      height: calc(100vh - 4rem);
+      height: calc(100vh - 8rem);
       display: grid;
       place-items: center;
 
@@ -152,6 +152,22 @@ body {
 
       h2 {
         color: gray;
+      }
+    }
+
+    .goalform {
+      margin-top: 3rem;
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      input {
+        width: 100%;
+        outline: none;
+        padding: 0.7rem 1rem;
+        border: none;
+        border-radius: 1rem;
       }
     }
   }

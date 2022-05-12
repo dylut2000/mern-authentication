@@ -18,7 +18,7 @@ const Dashboard = () => {
       <h1>Welcome {user && user.name}</h1>
       <br />
       <h2>Goals Dashboard</h2>
-      <br />
+
       <GoalForm />
     </div>
   )
