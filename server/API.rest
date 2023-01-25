@@ -1,0 +1,16 @@
+### variables
+@localhost=http://localhost:8080
+
+
+### test default server
+GET {{localhost}}
+
+
+### register route
+POST {{localhost}}/api/register HTTP/1.1
+content-type: application/json
+
+{
+    "email": "sample",
+    "password": "123456"
+}

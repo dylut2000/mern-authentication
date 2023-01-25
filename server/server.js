@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import connect from './database/connect.js'
+import morgan from 'morgan'
+import router from './router/route.js'
 
 const app = express()
 
@@ -8,6 +10,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cors())
+app.use(morgan('tiny'))
 app.disable('x-powered-by')
 
 const port = 8080
@@ -17,6 +20,10 @@ const port = 8080
 app.get('/', (req, res) => {
   res.status(200).json('Server is up')
 })
+
+/** API routes */
+
+app.use('/api', router)
 
 /** start server only when we have valid connection */
 connect()
