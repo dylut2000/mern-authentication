@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import connect from './database/connect.js'
 
 const app = express()
 
@@ -17,8 +18,18 @@ app.get('/', (req, res) => {
   res.status(200).json('Server is up')
 })
 
-/** start server */
-
-app.listen(port, () => {
-  console.log(`server is up on http://localhost:${port}`)
-})
+/** start server only when we have valid connection */
+connect()
+  .then(() => {
+    try {
+      app.listen(port, () => {
+        console.log(`server is up on http://localhost:${port}`)
+      })
+    } catch (error) {
+      console.log('Cannot start the server')
+    }
+  })
+  .catch((error) => {
+    console.log('invalid database connection')
+    console.log(error)
+  })
