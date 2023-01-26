@@ -7,10 +7,12 @@ GET {{localhost}}
 
 
 ### register route
-POST {{localhost}}/api/register HTTP/1.1
+POST {{localhost}}/api/register
 content-type: application/json
 
 {
-    "email": "sample",
-    "password": "123456"
-}
+    "username": "hardy",
+    "email": "hardy@example.com",
+    "password": "123456",
+    "profile": ""
+ }
