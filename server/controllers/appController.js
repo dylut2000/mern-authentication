@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 import UserModel from '../model/User.model.js'
 
 /**
@@ -17,22 +18,22 @@ import UserModel from '../model/User.model.js'
  */
 
 export async function register(req, res) {
-  try {
-    const {username, password, profile, email} = req.body
+  const {username, password, profile, email} = req.body
 
+  try {
     // check if username exist
 
     const existUsername = await UserModel.findOne({username})
 
     if (existUsername)
-      return res.status(500).json({msg: 'Username or email already exist'})
+      return res.status(500).json({error: 'Username or email already exist'})
 
     // check if email exist
 
     const existEmail = await UserModel.findOne({email})
 
     if (existEmail)
-      return res.status(400).json({msg: 'Username or email already exist'})
+      return res.status(400).json({error: 'Username or email already exist'})
 
     // hash password
 
@@ -65,7 +66,36 @@ export async function register(req, res) {
  */
 
 export async function login(req, res) {
-  res.json('login route')
+  const {username, password} = req.body
+
+  try {
+    // check if username exist
+
+    const existUser = await UserModel.findOne({username})
+
+    if (!existUser) return res.status(404).json({error: 'Username not found'})
+
+    // compare password
+
+    const passwordCheck = await bcrypt.compare(password, existUser.password)
+
+    if (!passwordCheck)
+      return res.status(400).json({error: 'Dont have password'})
+
+    // create a jwt
+
+    const token = await jwt.sign(
+      {userId: existUser._id, username: existUser.username},
+      process.env.JWT_SECRET,
+      {expiresIn: '24h'}
+    )
+
+    return res
+      .status(200)
+      .json({msg: 'Login successfully', username: existUser.username, token})
+  } catch (error) {
+    res.status(500).send(error)
+  }
 }
 
 /**

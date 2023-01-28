@@ -15,4 +15,14 @@ content-type: application/json
     "email": "hardy@example.com",
     "password": "123456",
     "profile": ""
- }
+}
+
+
+### login route
+POST {{localhost}}/api/login
+content-type: application/json
+
+{
+    "username": "hardy",
+    "password": "123456"
+}

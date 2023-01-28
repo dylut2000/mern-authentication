@@ -1,8 +1,11 @@
+import dotenv from 'dotenv'
 import express from 'express'
 import cors from 'cors'
 import connect from './database/connect.js'
 import morgan from 'morgan'
 import router from './router/route.js'
+
+dotenv.config()
 
 const app = express()
 
@@ -13,7 +16,7 @@ app.use(cors())
 app.use(morgan('tiny'))
 app.disable('x-powered-by')
 
-const port = 8080
+const port = process.env.PORT || 8080
 
 /** HTTP GET request */
 
