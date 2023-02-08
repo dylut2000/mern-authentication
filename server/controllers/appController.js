@@ -2,6 +2,26 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import UserModel from '../model/User.model.js'
 
+/** middleware to verify user */
+
+export async function verifyUser(req, res, next) {
+  try {
+    /** get username from GET || POST */
+
+    const {username} = req.method == 'GET' ? req.query : req.body
+
+    /** check if user exist */
+
+    let exist = await UserModel.findOne({username})
+
+    if (!exist) return res.status(404).json({error: 'Username not found'})
+
+    next()
+  } catch (error) {
+    return res.status({msg: 'Authentication Error', error})
+  }
+}
+
 /**
  * register user
  * POST: http://localhost:8080/api/register
